@@ -1,3 +1,5 @@
+package IntroPOO;
+
 import java.math.BigDecimal;
 
 public class CuentaBancaria {
