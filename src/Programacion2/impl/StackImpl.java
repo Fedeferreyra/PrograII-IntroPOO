@@ -39,7 +39,14 @@ public class StackImpl implements Stack {
 
     @Override
     public int size() {
-        return index + 1;
+        return index;
+    }
+
+    @Override
+    public void print() {
+        for (int i = 0; i < index; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 
     @Override

@@ -1,25 +1,26 @@
 package IntroPOO;
 
-import java.math.BigDecimal;
-
 public class CuentaBancaria {
-    private BigDecimal saldo;
-    private String cliente;
+    protected float saldo;
+    protected String cliente;
+    protected Long cbu;
 
-    public CuentaBancaria(Integer saldo) {
-        this.saldo = new BigDecimal(null != saldo ? 0 : saldo);
+    public CuentaBancaria(float saldo, String cliente, Long cbu) {
+        this.saldo = saldo;
+        this.cliente = cliente;
+        this.cbu = cbu;
     }
 
 
-    public void debitar(BigDecimal monto){
-        saldo.subtract(monto);
+    public void debitar(float monto) throws Exception {
+        saldo -= monto;
     }
 
-    public void depositar(BigDecimal monto){
-        saldo.add(monto);
+    public void depositar(float monto) {
+        saldo += monto;
     }
 
-    public String imprimirEstado(){
-        return "El saldo actual de la cuenta es: " + saldo.toString();
+    public float getSaldo() {
+        return saldo;
     }
 }

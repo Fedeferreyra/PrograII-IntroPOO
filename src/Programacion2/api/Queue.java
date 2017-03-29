@@ -7,4 +7,6 @@ public interface Queue {
     int poll();
     boolean isEmpty();
     int peek();
+    int size();
+    void print();
 }

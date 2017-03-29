@@ -1,17 +1,13 @@
 package IntroPOO;
 
-import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
-        CuentaBancaria cuentaBancaria = new CuentaBancaria(null);
-        cuentaBancaria.depositar(BigDecimal.valueOf(200L));
-        cuentaBancaria.imprimirEstado();
-        //sumatoriaDeNumerosHastaIngresoDe0();
-        //mayorDe3Numeros();
-        //count();
+    public static void main(String[] args) throws Exception {
+        CuentaBancaria cuentaBancaria = new CajaDeAhorro(200, null, null);
+        cuentaBancaria.depositar(200L);
+        cuentaBancaria.debitar(1000);
     }
 
     //Actividad 3

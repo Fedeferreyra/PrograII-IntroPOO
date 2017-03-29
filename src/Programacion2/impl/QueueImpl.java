@@ -6,7 +6,6 @@ public class QueueImpl implements Queue {
 
     int[] array;
     int index;
-    int offset;
 
     public QueueImpl(){
         array = new int[100];
@@ -20,21 +19,35 @@ public class QueueImpl implements Queue {
 
     @Override
     public int poll() {
-        int value = array[offset];
-        array[offset++] = 0;
-        return value;
+        int toReturn = array[0];
+        for (int i = 1; i < index; i++) {
+            array[i-1] = array[i];
+        }
+        index--;
 
+        return toReturn;
     }
 
     @Override
     public boolean isEmpty() {
-        return offset == index;
+        return index == 0;
     }
 
     @Override
     public int peek() {
-        return array[offset];
+        return array[0];
     }
 
+    @Override
+    public int size() {
+        return index;
+    }
 
+    @Override
+    public void print() {
+
+        for (int i = 0; i < index; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
 }

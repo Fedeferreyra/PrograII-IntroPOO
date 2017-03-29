@@ -11,4 +11,6 @@ public interface Stack {
     int peek();
 
     int size();
+
+    void print();
 }

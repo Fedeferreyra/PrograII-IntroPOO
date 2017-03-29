@@ -4,9 +4,7 @@ import Programacion2.Utils;
 import Programacion2.api.Stack;
 import Programacion2.impl.StackImpl;
 
-/**
- * Created by Federico on 21/03/2017.
- */
+//Contar los elementos de una Pila
 public class Ejercicio2D {
 
     public static void main(String[] args) {
