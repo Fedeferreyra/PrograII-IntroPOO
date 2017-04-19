@@ -2,6 +2,7 @@ package Programacion2;
 
 import Programacion2.api.Queue;
 import Programacion2.api.Stack;
+import Programacion2.impl.PrioritizedQueueImpl;
 
 import java.util.Random;
 
@@ -17,5 +18,13 @@ public class Utils {
         for (int i = 0; i < qty; i++) {
             queue.add(new Random().nextInt(100));
         }
+    }
+
+    public static PrioritizedQueueImpl createPrioritizedQueue(int qty) {
+        PrioritizedQueueImpl queue = new PrioritizedQueueImpl();
+        for (int i = 0; i < qty; i++) {
+            queue.add(new Random().nextInt(100), new Random().nextInt(10));
+        }
+        return queue;
     }
 }
