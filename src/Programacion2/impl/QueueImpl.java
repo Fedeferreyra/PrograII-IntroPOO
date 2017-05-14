@@ -4,17 +4,20 @@ import Programacion2.api.Queue;
 
 public class QueueImpl implements Queue {
 
+    // puto le clavaste array de nombre.
+    // Pongamosle elements te parece ?
     int[] array;
     int index;
-
-    public QueueImpl(){
-        array = new int[100];
-    }
 
     @Override
     public void add(int element) {
         array[index] = element;
         index++;
+    }
+
+    @Override
+    public void initialize() {
+        array = new int[100];
     }
 
     @Override

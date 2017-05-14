@@ -9,8 +9,9 @@ public class Ejercicio4F {
 
     public static void main(String[] args) {
         Queue queue = new QueueImpl();
+        queue.initialize();
         Queue queue1 = new QueueImpl();
-
+        queue.initialize();
         Utils.fillQueue(queue, 7);
         System.out.println("Los valores de la cola C1 son: ");
         queue.print();

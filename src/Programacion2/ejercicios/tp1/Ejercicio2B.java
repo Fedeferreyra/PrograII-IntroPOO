@@ -10,6 +10,8 @@ public class Ejercicio2B {
     public static void main(String[] args) {
         StackImpl sourceStack = new StackImpl();
         StackImpl destinyStack = new StackImpl();
+        sourceStack.initialize();
+        destinyStack.initialize();
         Utils.fillStack(sourceStack, 5);
 
         System.out.println("Los valores de la pila al principio del proceso son: ");
@@ -23,6 +25,7 @@ public class Ejercicio2B {
     }
 
     private static void copyStack(Stack sourceStack, Stack destinyStack) {
+        // recursividad para llenar la pila en orden sin tener que usar una pila aux.
         if (!sourceStack.isEmpty()) {
             int pop = sourceStack.pop();
             copyStack(sourceStack, destinyStack);

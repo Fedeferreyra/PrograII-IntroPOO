@@ -9,6 +9,7 @@ public class Ejercicio2D {
 
     public static void main(String[] args) {
         StackImpl stack = new StackImpl();
+        stack.initialize();
         Utils.fillStack(stack, 5);
         count(stack, 1);
     }

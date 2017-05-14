@@ -22,6 +22,7 @@ public class Utils {
 
     public static PrioritizedQueueImpl createPrioritizedQueue(int qty) {
         PrioritizedQueueImpl queue = new PrioritizedQueueImpl();
+        queue.initialize();
         for (int i = 0; i < qty; i++) {
             queue.add(new Random().nextInt(100), new Random().nextInt(10));
         }

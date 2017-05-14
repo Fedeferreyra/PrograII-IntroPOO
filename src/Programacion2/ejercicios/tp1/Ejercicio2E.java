@@ -9,6 +9,7 @@ public class Ejercicio2E {
 
     public static void main(String[] args) {
         Stack stack = new StackImpl();
+        stack.initialize();
         Utils.fillStack(stack, 5);
 
         System.out.println("Los valores de la pila son:");

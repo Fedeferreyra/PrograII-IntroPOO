@@ -12,7 +12,9 @@ public class Ejercicio4B {
     public static void main(String[] args) {
         Queue sourceQueue = new QueueImpl();
         Stack stack = new StackImpl();
+        stack.initialize();
         Queue destinyQueue = new QueueImpl();
+        destinyQueue.initialize();
         Utils.fillQueue(sourceQueue, 5);
 
         System.out.println("Los valores de la cola al principio del proceso son: ");

@@ -10,7 +10,7 @@ public class Ejercicio4E {
 
     public static void main(String[] args) {
         Queue queue = new QueueImpl();
-
+        queue.initialize();
         //Utils.fillQueue(queue, 9);
         queue.add(1);
         queue.add(2);
@@ -25,6 +25,7 @@ public class Ejercicio4E {
 
     private static void isCapicua(Queue queue) {
         Stack stack = new StackImpl();
+        stack.initialize();
         boolean flag = false;
         if(queue.size() % 2 != 0){
             flag = true;

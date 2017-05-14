@@ -10,7 +10,7 @@ public class Ejercicio4C {
 
     public static void main(String[] args) {
         Queue queue = new QueueImpl();
-
+        queue.initialize();
         Utils.fillQueue(queue, 5);
         System.out.println("Los valores de la cola al principio del proceso son: ");
         queue.print();

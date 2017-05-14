@@ -7,11 +7,7 @@ public class StackImpl implements Stack {
     private int[] array;
     private int index;
 
-    public StackImpl() {
-        initialize();
-    }
-
-    private void initialize() {
+    public void initialize() {
         array = new int[20];
         index = 0;
     }

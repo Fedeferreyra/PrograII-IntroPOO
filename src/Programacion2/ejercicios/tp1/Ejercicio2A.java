@@ -9,7 +9,9 @@ public class Ejercicio2A {
 
     public static void main(String[] args) {
         Stack sourceStack = new StackImpl();
+        sourceStack.initialize();
         Stack destinyStack = new StackImpl();
+        destinyStack.initialize();
         Utils.fillStack(sourceStack, 5);
 
         System.out.println("Los valores de la pila al principio del proceso son:");

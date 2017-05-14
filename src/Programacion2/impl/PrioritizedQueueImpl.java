@@ -9,7 +9,7 @@ public class PrioritizedQueueImpl implements PrioritizedQueue {
     private int[] priorities;
     private int index;
 
-    public PrioritizedQueueImpl() {
+    public void initialize() {
         this.elements = new int[100];
         this.priorities = new int[100];
         this.index = 0;
