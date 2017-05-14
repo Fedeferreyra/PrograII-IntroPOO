@@ -10,4 +10,5 @@ public interface PrioritizedQueue {
     int peekPriority();
     int size();
     void print();
+    void initialize();
 }
