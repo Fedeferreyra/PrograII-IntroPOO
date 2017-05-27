@@ -17,12 +17,12 @@ public class StackImpl implements Stack {
         index++;
     }
 
-    public int pop() {
+    public void pop() {
         if (!isEmpty()) {
             index--;
-            return array[index];
+        } else {
+            System.out.println("Empty Stack, nothing to pop");
         }
-        return 0;
     }
 
     public boolean isEmpty() {
@@ -33,19 +33,16 @@ public class StackImpl implements Stack {
         return array[index];
     }
 
-    @Override
     public int size() {
         return index;
     }
 
-    @Override
     public void print() {
         for (int i = 0; i < index; i++) {
             System.out.print(array[i] + " ");
         }
     }
 
-    @Override
     public String toString() {
         return String.valueOf(array[index]);
     }
