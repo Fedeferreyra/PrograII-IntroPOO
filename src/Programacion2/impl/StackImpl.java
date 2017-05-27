@@ -20,8 +20,6 @@ public class StackImpl implements Stack {
     public void pop() {
         if (!isEmpty()) {
             index--;
-        } else {
-            System.out.println("Empty Stack, nothing to pop");
         }
     }
 
@@ -30,7 +28,7 @@ public class StackImpl implements Stack {
     }
 
     public int peek(){
-        return array[index];
+        return array[index-1];
     }
 
     public int size() {
