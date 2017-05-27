@@ -3,6 +3,7 @@ package Programacion2;
 import Programacion2.api.Queue;
 import Programacion2.api.Stack;
 import Programacion2.impl.PrioritizedQueueImpl;
+import Programacion2.impl.StackImpl;
 
 import java.util.Random;
 
@@ -27,5 +28,10 @@ public class Utils {
             queue.add(new Random().nextInt(100), new Random().nextInt(10));
         }
         return queue;
+    }
+
+    public static void printStaticStack(Stack stack ) {
+        StackImpl sToPrint = (StackImpl) stack;
+        sToPrint.print();
     }
 }
