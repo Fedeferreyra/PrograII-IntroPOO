@@ -15,19 +15,19 @@ public class Ejercicio2B {
         Utils.fillStack(sourceStack, 5);
 
         System.out.println("Los valores de la pila al principio del proceso son: ");
-        sourceStack.print();
+        Utils.printStaticStack(sourceStack);
 
         copyStack(sourceStack, destinyStack);
 
         System.out.println("\n\nLos valores de la pila al final del proceson son:");
-        destinyStack.print();
-
+        Utils.printStaticStack(destinyStack);
     }
 
     private static void copyStack(Stack sourceStack, Stack destinyStack) {
         // recursividad para llenar la pila en orden sin tener que usar una pila aux.
-        if (!sourceStack.isEmpty()) {
-            int pop = sourceStack.pop();
+       if (!sourceStack.isEmpty()) {
+            int pop = sourceStack.peek();
+            sourceStack.pop();
             copyStack(sourceStack, destinyStack);
             destinyStack.push(pop);
         }
