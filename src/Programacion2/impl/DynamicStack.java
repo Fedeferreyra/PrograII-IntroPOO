@@ -20,22 +20,18 @@ public class DynamicStack implements Stack{
     }
 
     @Override
-    public int pop() {
+    public void pop() {
         Node previewsTop = top;
         top = top.getNext();
-        return previewsTop.getValue();
     }
 
-    @Override
     public boolean isEmpty() {
         return top == null;
     }
 
-    @Override
     public int peek() {
         return top.getValue();
     }
-
 
     public int size() {
        return innerNodes(this.top);
@@ -49,7 +45,6 @@ public class DynamicStack implements Stack{
         }
     }
 
-    @Override
     public void print() {
         System.out.print(this.innerValue(top));
     }
@@ -61,6 +56,4 @@ public class DynamicStack implements Stack{
            return Integer.toString(node.getValue());
        }
     }
-
-
 }
