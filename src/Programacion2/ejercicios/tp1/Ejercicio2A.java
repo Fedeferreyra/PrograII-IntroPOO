@@ -15,18 +15,18 @@ public class Ejercicio2A {
         Utils.fillStack(sourceStack, 5);
 
         System.out.println("Los valores de la pila al principio del proceso son:");
-        sourceStack.print();
+        Utils.printStaticStack(sourceStack);
 
         fromStackToStack(sourceStack, destinyStack);
 
         System.out.println("\n\nLos valores de la pila al final del proceso son:");
-        destinyStack.print();
+        Utils.printStaticStack(destinyStack);
     }
 
     private static void fromStackToStack(Stack sourceStack, Stack destinyStack) {
-        if (!sourceStack.isEmpty()) {
-            destinyStack.push(sourceStack.pop());
-            fromStackToStack(sourceStack, destinyStack);
+        while (!sourceStack.isEmpty()) {
+            destinyStack.push(sourceStack.peek());
+            sourceStack.pop();
         }
     }
 }
