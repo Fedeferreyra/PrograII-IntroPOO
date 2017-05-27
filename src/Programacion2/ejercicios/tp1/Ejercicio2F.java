@@ -13,19 +13,18 @@ public class Ejercicio2F {
         Utils.fillStack(stack, 5);
 
         System.out.println("Los valores de la pila son: ");
-        stack.print();
-        avg(stack, 0, stack.size());
-
-
+        Utils.printStaticStack(stack);
+        float avg = avg(stack, 0, 0);
+        System.out.println("Los valores de la pila son: " + avg);
     }
 
-    private static void avg(Stack stack, float suma, float size) {
+    private static float avg(Stack stack, float suma, float counter) {
         if (!stack.isEmpty()) {
-            suma += stack.pop();
-            avg(stack, suma, size);
-        }else {
-            float avg = suma / size;
-            System.out.println("\n\nY el promedio es: " + avg);
+            suma += stack.peek();
+            stack.pop();
+            return avg(stack, suma, ++counter);
+        } else {
+            return counter > 0 ? suma/counter : 0;
         }
     }
 }
