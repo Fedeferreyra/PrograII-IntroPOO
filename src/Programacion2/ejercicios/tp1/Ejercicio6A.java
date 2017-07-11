@@ -1,7 +1,7 @@
 package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
-import Programacion2.impl.PrioritizedQueueImpl;
+import Programacion2.impl.ColaPrioridadEstatica;
 
 /**
  * Combinar dos colas con prioridades CP1 y CP2, generando una nueva
@@ -11,8 +11,8 @@ import Programacion2.impl.PrioritizedQueueImpl;
 public class Ejercicio6A {
 
     public static void main(String[] args) {
-        PrioritizedQueueImpl prioritizedQueue1 = Utils.createPrioritizedQueue(9);
-        PrioritizedQueueImpl prioritizedQueue2 = Utils.createPrioritizedQueue(9);
+        ColaPrioridadEstatica prioritizedQueue1 = Utils.createPrioritizedQueue(9);
+        ColaPrioridadEstatica prioritizedQueue2 = Utils.createPrioritizedQueue(9);
 
         System.out.println("Cola priorizada 1:");
         prioritizedQueue1.print();
@@ -24,17 +24,17 @@ public class Ejercicio6A {
 
     }
 
-    private static PrioritizedQueueImpl combinarColas(PrioritizedQueueImpl prioritizedQueue1, PrioritizedQueueImpl prioritizedQueue2) {
-        PrioritizedQueueImpl prioritizedQueue = new PrioritizedQueueImpl();
+    private static ColaPrioridadEstatica combinarColas(ColaPrioridadEstatica prioritizedQueue1, ColaPrioridadEstatica prioritizedQueue2) {
+        ColaPrioridadEstatica prioritizedQueue = new ColaPrioridadEstatica();
 
         int qty = prioritizedQueue1.size() + prioritizedQueue2.size();
         for (int i = 0; i < qty; i++) {
             if (prioritizedQueue1.size() > 0 ){
-                prioritizedQueue.add(prioritizedQueue1.peek(),prioritizedQueue1.peekPriority());
-                prioritizedQueue1.poll();
+                prioritizedQueue.acolarPrioridad(prioritizedQueue1.primero(),prioritizedQueue1.prioridad());
+                prioritizedQueue1.desacolar();
             } else if (prioritizedQueue2.size() > 0 ){
-                prioritizedQueue.add(prioritizedQueue2.peek(), prioritizedQueue2.peekPriority());
-                prioritizedQueue2.poll();
+                prioritizedQueue.acolarPrioridad(prioritizedQueue2.primero(), prioritizedQueue2.prioridad());
+                prioritizedQueue2.desacolar();
             }
         }
         return prioritizedQueue;

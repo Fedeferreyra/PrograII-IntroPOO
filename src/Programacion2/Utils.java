@@ -3,7 +3,7 @@ package Programacion2;
 import Programacion2.api.Cola;
 import Programacion2.api.Pila;
 import Programacion2.impl.PilaEstatica;
-import Programacion2.impl.PrioritizedQueueImpl;
+import Programacion2.impl.ColaPrioridadEstatica;
 
 import java.util.Random;
 
@@ -21,11 +21,11 @@ public class Utils {
         }
     }
 
-    public static PrioritizedQueueImpl createPrioritizedQueue(int qty) {
-        PrioritizedQueueImpl queue = new PrioritizedQueueImpl();
-        queue.initialize();
+    public static ColaPrioridadEstatica createPrioritizedQueue(int qty) {
+        ColaPrioridadEstatica queue = new ColaPrioridadEstatica();
+        queue.inicializar();
         for (int i = 0; i < qty; i++) {
-            queue.add(new Random().nextInt(100), new Random().nextInt(10));
+            queue.acolarPrioridad(new Random().nextInt(100), new Random().nextInt(10));
         }
         return queue;
     }

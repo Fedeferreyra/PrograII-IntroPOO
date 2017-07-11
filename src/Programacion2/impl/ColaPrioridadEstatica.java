@@ -1,22 +1,22 @@
 package Programacion2.impl;
 
 
-import Programacion2.api.PrioritizedQueue;
+import Programacion2.api.ColaPrioridad;
 
-public class PrioritizedQueueImpl implements PrioritizedQueue {
+public class ColaPrioridadEstatica implements ColaPrioridad {
 
     private int[] elements;
     private int[] priorities;
     private int index;
 
-    public void initialize() {
+    public void inicializar() {
         this.elements = new int[100];
         this.priorities = new int[100];
         this.index = 0;
     }
 
     @Override
-    public void add(int element, int priority) {
+    public void acolarPrioridad(int element, int priority) {
         int i = index;
         for (; i > 0 && priorities[i - 1] >= priority; i--) {
             elements[i] = elements[i - 1];
@@ -28,7 +28,7 @@ public class PrioritizedQueueImpl implements PrioritizedQueue {
     }
 
     @Override
-    public int poll() {
+    public int desacolar() {
         if (index >= 0) {
             return elements[index--];
         } else {
@@ -37,26 +37,24 @@ public class PrioritizedQueueImpl implements PrioritizedQueue {
     }
 
     @Override
-    public boolean isEmpty() {
+    public boolean colaVacia() {
         return index == 0;
     }
 
     @Override
-    public int peek() {
+    public int primero() {
         return elements[index - 1];
     }
 
     @Override
-    public int peekPriority() {
+    public int prioridad() {
         return priorities[index - 1];
     }
 
-    @Override
     public int size() {
         return index;
     }
 
-    @Override
     public void print() {
         for (int i = 0; i < index; i++) {
             if (i % 3 == 0 && i != 0) {
