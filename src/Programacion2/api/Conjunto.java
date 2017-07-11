@@ -1,15 +1,11 @@
 package Programacion2.api;
 
 public interface Conjunto {
-    void InicializarConjunto();
 
-    boolean ConjuntoVacio();
-
-    void Agregar(int x);
-
-    int Elegir();
-
-    void Sacar(int x);
-
-    boolean Pertenece(int x);
+    void inicializarConjunto();
+    boolean conjuntoVacio();
+    void agregar(int x);
+    int elegir();
+    void sacar(int x);
+    boolean pertenece(int x);
 }
