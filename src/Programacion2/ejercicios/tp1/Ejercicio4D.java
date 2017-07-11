@@ -15,20 +15,21 @@ public class Ejercicio4D {
         Utils.fillQueue(queue, 6);
         Utils.fillQueue(queue1, 8);
         System.out.println("Los valores de una cola son: ");
-        queue.print();
+        Utils.printStaticQueue(queue);
         System.out.println("\n\nLos valores de la otra cola son: ");
-        queue1.print();
-
+        Utils.printStaticQueue(queue);
         compareLastElements(queue, queue1);
     }
 
     private static void compareLastElements(Queue queue, Queue queue1) {
         int queueLastElement = 0, queue1LastElement = 0;
         while (!queue.isEmpty()){
-            queueLastElement = queue.poll();
+            queueLastElement = queue.peek();
+            queue.poll();
         }
         while (!queue1.isEmpty()){
-            queue1LastElement = queue1.poll();
+            queue1LastElement = queue1.peek();
+            queue1.poll();
         }
         if(queue1LastElement == queueLastElement){
             System.out.println("\n\nLos valores del final de las dos colas coinciden");

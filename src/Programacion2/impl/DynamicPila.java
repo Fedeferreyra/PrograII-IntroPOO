@@ -1,35 +1,35 @@
 package Programacion2.impl;
 
-import Programacion2.api.Stack;
+import Programacion2.api.Pila;
 
-public class DynamicStack implements Stack{
+public class DynamicPila implements Pila {
     private Node top;
 
 
-    public void initialize() {
+    public void inicializar() {
         top = null;
     }
 
-    public void push(int element) {
+    public void apilar(int element) {
         Node aux = new Node();
         aux.setValue(element);
-        if (!this.isEmpty()) {
+        if (!this.pilaVacia()) {
             aux.setNode(top);
         }
         top = aux;
     }
 
     @Override
-    public void pop() {
+    public void desapilar() {
         Node previewsTop = top;
         top = top.getNext();
     }
 
-    public boolean isEmpty() {
+    public boolean pilaVacia() {
         return top == null;
     }
 
-    public int peek() {
+    public int tope() {
         return top.getValue();
     }
 

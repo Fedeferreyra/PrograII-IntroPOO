@@ -1,17 +1,17 @@
 package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
-import Programacion2.api.Stack;
-import Programacion2.impl.StackImpl;
+import Programacion2.api.Pila;
+import Programacion2.impl.PilaEstatica;
 
 //Copiar una Pila en otra (dejándola en el mismo orden que la original)
 public class Ejercicio2B {
 
     public static void main(String[] args) {
-        StackImpl sourceStack = new StackImpl();
-        StackImpl destinyStack = new StackImpl();
-        sourceStack.initialize();
-        destinyStack.initialize();
+        PilaEstatica sourceStack = new PilaEstatica();
+        PilaEstatica destinyStack = new PilaEstatica();
+        sourceStack.inicializar();
+        destinyStack.inicializar();
         Utils.fillStack(sourceStack, 5);
 
         System.out.println("Los valores de la pila al principio del proceso son: ");
@@ -23,13 +23,13 @@ public class Ejercicio2B {
         Utils.printStaticStack(destinyStack);
     }
 
-    private static void copyStack(Stack sourceStack, Stack destinyStack) {
+    private static void copyStack(Pila sourcePila, Pila destinyPila) {
         // recursividad para llenar la pila en orden sin tener que usar una pila aux.
-       if (!sourceStack.isEmpty()) {
-            int pop = sourceStack.peek();
-            sourceStack.pop();
-            copyStack(sourceStack, destinyStack);
-            destinyStack.push(pop);
+       if (!sourcePila.pilaVacia()) {
+            int pop = sourcePila.tope();
+            sourcePila.desapilar();
+            copyStack(sourcePila, destinyPila);
+            destinyPila.apilar(pop);
         }
     }
 }

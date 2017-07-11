@@ -1,17 +1,17 @@
 package Programacion2;
 
+import Programacion2.api.Pila;
 import Programacion2.api.Queue;
-import Programacion2.api.Stack;
+import Programacion2.impl.PilaEstatica;
 import Programacion2.impl.PrioritizedQueueImpl;
-import Programacion2.impl.StackImpl;
 
 import java.util.Random;
 
 public class Utils {
 
-    public static void fillStack(Stack stack, int qty) {
+    public static void fillStack(Pila pila, int qty) {
         for (int i = 0; i < qty; i++) {
-            stack.push(new Random().nextInt(100));
+            pila.apilar(new Random().nextInt(100));
         }
     }
 
@@ -30,8 +30,16 @@ public class Utils {
         return queue;
     }
 
-    public static void printStaticStack(Stack stack ) {
-        StackImpl sToPrint = (StackImpl) stack;
+    public static void printStaticStack(Pila pila) {
+        PilaEstatica sToPrint = (PilaEstatica) pila;
         sToPrint.print();
+    }
+
+    public static void printStaticQueue(Queue queue) {
+        Queue aux = queue;
+        while (!aux.isEmpty()) {
+            System.out.println(aux.peek());
+            aux.poll();
+        }
     }
 }

@@ -1,9 +1,8 @@
 package Programacion2.ejercicios.tp1;
 
+import Programacion2.Utils;
 import Programacion2.api.Queue;
-import Programacion2.api.Stack;
 import Programacion2.impl.QueueImpl;
-import Programacion2.impl.StackImpl;
 
 //Determinar si una Cola es capicúa o no.
 public class Ejercicio4E {
@@ -18,27 +17,28 @@ public class Ejercicio4E {
         queue.add(2);
         queue.add(1);
         System.out.println("Los valores de la cola son:");
-        queue.print();
+        Utils.printStaticQueue(queue);
 
         isCapicua(queue);
     }
 
     private static void isCapicua(Queue queue) {
-        Stack stack = new StackImpl();
-        stack.initialize();
+        /*Pila stack = new PilaEstatica();
+        stack.inicializar();
         boolean flag = false;
         if(queue.size() % 2 != 0){
             flag = true;
         }
         for (int i = 0; i <= queue.size()/2; i++) {
-            stack.push(queue.poll());
+            stack.apilar(queue.tope());
+            queue.poll();
         }
         if(flag){
             queue.poll();
         }
         boolean isCapicua = true;
         for (int i = 0; i < stack.size(); i++) {
-            if(stack.pop() != queue.poll()){
+            if(stack.tope() != queue.tope()){
                 isCapicua = false;
                 System.out.println("\n\nNo es capicua");
                 break;
@@ -46,6 +46,6 @@ public class Ejercicio4E {
         }
         if (isCapicua){
             System.out.println("\n\nLa cola es capicua");
-        }
+        }*/
     }
 }

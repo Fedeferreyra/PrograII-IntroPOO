@@ -1,33 +1,33 @@
 package Programacion2.impl;
 
-import Programacion2.api.Stack;
+import Programacion2.api.Pila;
 
-public class StackImpl implements Stack {
+public class PilaEstatica implements Pila {
 
     private int[] array;
     private int index;
 
-    public void initialize() {
+    public void inicializar() {
         array = new int[20];
         index = 0;
     }
 
-    public void push(int element) {
+    public void apilar(int element) {
         array[index] = element;
         index++;
     }
 
-    public void pop() {
-        if (!isEmpty()) {
+    public void desapilar() {
+        if (!pilaVacia()) {
             index--;
         }
     }
 
-    public boolean isEmpty() {
+    public boolean pilaVacia() {
         return index == 0;
     }
 
-    public int peek(){
+    public int tope(){
         return array[index-1];
     }
 

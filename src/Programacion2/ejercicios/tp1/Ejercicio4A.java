@@ -15,17 +15,18 @@ public class Ejercicio4A {
         Utils.fillQueue(sourceQueue, 5);
 
         System.out.println("Los valores de la cola al principio del proceso son: ");
-        sourceQueue.print();
+        Utils.printStaticQueue(destinyQueue);
 
         queueToQueue(sourceQueue, destinyQueue);
 
         System.out.println("\n\nLos valores de la cola al final del proceso son: ");
-        destinyQueue.print();
+        Utils.printStaticQueue(sourceQueue);
     }
 
     private static void queueToQueue(Queue sourceQueue, Queue destinyQueue) {
         if (!sourceQueue.isEmpty()) {
-            destinyQueue.add(sourceQueue.poll());
+            destinyQueue.add(sourceQueue.peek());
+            sourceQueue.poll();
             queueToQueue(sourceQueue, destinyQueue);
         }
     }

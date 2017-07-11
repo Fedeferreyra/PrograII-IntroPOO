@@ -14,12 +14,11 @@ public class Ejercicio4F {
         queue.initialize();
         Utils.fillQueue(queue, 7);
         System.out.println("Los valores de la cola C1 son: ");
-        queue.print();
+        Utils.printStaticQueue(queue);
         System.out.println();
         Utils.fillQueue(queue1, 7);
         System.out.println("Los valores de la cola C2 son: ");
-        queue1.print();
-        System.out.println();
+        Utils.printStaticQueue(queue1);
 
 
     }

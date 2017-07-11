@@ -1,27 +1,27 @@
 package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
-import Programacion2.api.Stack;
-import Programacion2.impl.StackImpl;
+import Programacion2.api.Pila;
+import Programacion2.impl.PilaEstatica;
 
 //Sumar los elementos de una Pila
 public class Ejercicio2E {
 
     public static void main(String[] args) {
-        Stack stack = new StackImpl();
-        stack.initialize();
-        Utils.fillStack(stack, 5);
+        Pila pila = new PilaEstatica();
+        pila.inicializar();
+        Utils.fillStack(pila, 5);
 
         System.out.println("Los valores de la pila son:");
-        Utils.printStaticStack(stack);
-        int suma = sumar(stack, 0);
+        Utils.printStaticStack(pila);
+        int suma = sumar(pila, 0);
         System.out.println("Los valores sumados de la pila son: " + suma);
 
     }
 
-    public static int sumar(Stack stack, int suma) {
-        suma = suma + stack.peek();
-        stack.pop();
-        return stack.isEmpty() ?  suma : sumar(stack, suma);
+    public static int sumar(Pila pila, int suma) {
+        suma = suma + pila.tope();
+        pila.desapilar();
+        return pila.pilaVacia() ?  suma : sumar(pila, suma);
     }
 }

@@ -1,32 +1,32 @@
 package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
-import Programacion2.api.Stack;
-import Programacion2.impl.StackImpl;
+import Programacion2.api.Pila;
+import Programacion2.impl.PilaEstatica;
 
 //Invertir el contenido de una Pila.
 public class Ejercicio2C {
 
     public static void main(String[] args) {
-        Stack stack = new StackImpl();
-        stack.initialize();
-        Utils.fillStack(stack, 5);
+        Pila pila = new PilaEstatica();
+        pila.inicializar();
+        Utils.fillStack(pila, 5);
 
         System.out.println("Los valores de la pila al principio del proceso son:");
-        Utils.printStaticStack(stack);
+        Utils.printStaticStack(pila);
 
-         invertStack(stack);
+         invertStack(pila);
 
         System.out.println("\n\nLos valores de la pila al final del proceson son:");
-        Utils.printStaticStack(stack);
+        Utils.printStaticStack(pila);
     }
 
-    private static void invertStack(Stack stack) {
-        int peek = stack.peek();
-        stack.pop();
-        if (!stack.isEmpty()) {
-            invertStack(stack);
+    private static void invertStack(Pila pila) {
+        int peek = pila.tope();
+        pila.desapilar();
+        if (!pila.pilaVacia()) {
+            invertStack(pila);
         }
-        stack.push(peek);
+        pila.apilar(peek);
     }
 }
