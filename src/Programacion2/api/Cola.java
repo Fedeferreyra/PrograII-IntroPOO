@@ -1,7 +1,7 @@
 package Programacion2.api;
 
 
-public interface Queue {
+public interface Cola {
 
     void add(int element);
     void initialize();

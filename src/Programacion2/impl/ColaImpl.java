@@ -1,8 +1,8 @@
 package Programacion2.impl;
 
-import Programacion2.api.Queue;
+import Programacion2.api.Cola;
 
-public class QueueImpl implements Queue {
+public class ColaImpl implements Cola {
 
     int[] elementos;
     int index;

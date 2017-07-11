@@ -1,7 +1,7 @@
 package Programacion2;
 
+import Programacion2.api.Cola;
 import Programacion2.api.Pila;
-import Programacion2.api.Queue;
 import Programacion2.impl.PilaEstatica;
 import Programacion2.impl.PrioritizedQueueImpl;
 
@@ -15,9 +15,9 @@ public class Utils {
         }
     }
 
-    public static void fillQueue(Queue queue, int qty){
+    public static void fillQueue(Cola cola, int qty){
         for (int i = 0; i < qty; i++) {
-            queue.add(new Random().nextInt(100));
+            cola.add(new Random().nextInt(100));
         }
     }
 
@@ -35,8 +35,8 @@ public class Utils {
         sToPrint.print();
     }
 
-    public static void printStaticQueue(Queue queue) {
-        Queue aux = queue;
+    public static void printStaticQueue(Cola cola) {
+        Cola aux = cola;
         while (!aux.isEmpty()) {
             System.out.println(aux.peek());
             aux.poll();

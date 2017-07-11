@@ -2,33 +2,31 @@ package Programacion2.ejercicios.tp1;
 
 
 import Programacion2.Utils;
-import Programacion2.api.Queue;
-import Programacion2.impl.QueueImpl;
-
-import javax.rmi.CORBA.Util;
+import Programacion2.api.Cola;
+import Programacion2.impl.ColaImpl;
 
 //Invertir el contenido de una Cola (NO pueden usarse Pilas auxiliares)
 public class Ejercicio4C {
 
     public static void main(String[] args) {
-        Queue queue = new QueueImpl();
-        queue.initialize();
-        Utils.fillQueue(queue, 5);
+        Cola cola = new ColaImpl();
+        cola.initialize();
+        Utils.fillQueue(cola, 5);
         System.out.println("Los valores de la cola al principio del proceso son: ");
-        Utils.printStaticQueue(queue);
+        Utils.printStaticQueue(cola);
 
-        invertQueue(queue);
+        invertQueue(cola);
 
         System.out.println("\n\nLos valores de la cola al final del proceso son: ");
-        Utils.printStaticQueue(queue);
+        Utils.printStaticQueue(cola);
     }
 
-    private static void invertQueue(Queue queue){
-        int value = queue.peek();
-        queue.poll();
-        if (!queue.isEmpty()){
-            invertQueue(queue);
+    private static void invertQueue(Cola cola){
+        int value = cola.peek();
+        cola.poll();
+        if (!cola.isEmpty()){
+            invertQueue(cola);
         }
-        queue.add(value);
+        cola.add(value);
     }
 }

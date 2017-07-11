@@ -1,33 +1,33 @@
 package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
-import Programacion2.api.Queue;
-import Programacion2.impl.QueueImpl;
+import Programacion2.api.Cola;
+import Programacion2.impl.ColaImpl;
 
 //Pasar una Cola a otra
 public class Ejercicio4A {
 
     public static void main(String[] args) {
-        Queue sourceQueue = new QueueImpl();
-        sourceQueue.initialize();
-        Queue destinyQueue = new QueueImpl();
-        destinyQueue.initialize();
-        Utils.fillQueue(sourceQueue, 5);
+        Cola sourceCola = new ColaImpl();
+        sourceCola.initialize();
+        Cola destinyCola = new ColaImpl();
+        destinyCola.initialize();
+        Utils.fillQueue(sourceCola, 5);
 
         System.out.println("Los valores de la cola al principio del proceso son: ");
-        Utils.printStaticQueue(destinyQueue);
+        Utils.printStaticQueue(destinyCola);
 
-        queueToQueue(sourceQueue, destinyQueue);
+        queueToQueue(sourceCola, destinyCola);
 
         System.out.println("\n\nLos valores de la cola al final del proceso son: ");
-        Utils.printStaticQueue(sourceQueue);
+        Utils.printStaticQueue(sourceCola);
     }
 
-    private static void queueToQueue(Queue sourceQueue, Queue destinyQueue) {
-        if (!sourceQueue.isEmpty()) {
-            destinyQueue.add(sourceQueue.peek());
-            sourceQueue.poll();
-            queueToQueue(sourceQueue, destinyQueue);
+    private static void queueToQueue(Cola sourceCola, Cola destinyCola) {
+        if (!sourceCola.isEmpty()) {
+            destinyCola.add(sourceCola.peek());
+            sourceCola.poll();
+            queueToQueue(sourceCola, destinyCola);
         }
     }
 }
