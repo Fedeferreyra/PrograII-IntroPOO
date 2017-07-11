@@ -2,7 +2,7 @@ package Programacion2.impl;
 
 import Programacion2.api.Cola;
 
-public class ColaImpl implements Cola {
+public class ColaEstatica implements Cola {
 
     int[] elementos;
     int index;

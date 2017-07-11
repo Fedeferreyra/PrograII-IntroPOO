@@ -2,15 +2,15 @@ package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
 import Programacion2.api.Cola;
-import Programacion2.impl.ColaImpl;
+import Programacion2.impl.ColaEstatica;
 
 //Determinar si el final de la Cola C1 coincide o no con la Cola C2.
 public class Ejercicio4D {
 
     public static void main(String[] args) {
-        Cola cola = new ColaImpl();
+        Cola cola = new ColaEstatica();
         cola.inicializar();
-        Cola cola1 = new ColaImpl();
+        Cola cola1 = new ColaEstatica();
         cola.inicializar();
         Utils.fillQueue(cola, 6);
         Utils.fillQueue(cola1, 8);

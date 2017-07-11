@@ -2,13 +2,13 @@ package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
 import Programacion2.api.Cola;
-import Programacion2.impl.ColaImpl;
+import Programacion2.impl.ColaEstatica;
 
 //Determinar si una Cola es capicúa o no.
 public class Ejercicio4E {
 
     public static void main(String[] args) {
-        Cola cola = new ColaImpl();
+        Cola cola = new ColaEstatica();
         cola.inicializar();
         //Utils.fillQueue(cola, 9);
         cola.acolar(1);
