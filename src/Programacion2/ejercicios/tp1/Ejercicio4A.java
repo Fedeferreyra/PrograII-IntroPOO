@@ -9,9 +9,9 @@ public class Ejercicio4A {
 
     public static void main(String[] args) {
         Cola sourceCola = new ColaImpl();
-        sourceCola.initialize();
+        sourceCola.inicializar();
         Cola destinyCola = new ColaImpl();
-        destinyCola.initialize();
+        destinyCola.inicializar();
         Utils.fillQueue(sourceCola, 5);
 
         System.out.println("Los valores de la cola al principio del proceso son: ");
@@ -24,9 +24,9 @@ public class Ejercicio4A {
     }
 
     private static void queueToQueue(Cola sourceCola, Cola destinyCola) {
-        if (!sourceCola.isEmpty()) {
-            destinyCola.add(sourceCola.peek());
-            sourceCola.poll();
+        if (!sourceCola.colaVacia()) {
+            destinyCola.acolar(sourceCola.primero());
+            sourceCola.desacolar();
             queueToQueue(sourceCola, destinyCola);
         }
     }

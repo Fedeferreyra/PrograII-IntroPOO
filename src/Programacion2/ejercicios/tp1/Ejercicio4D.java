@@ -9,9 +9,9 @@ public class Ejercicio4D {
 
     public static void main(String[] args) {
         Cola cola = new ColaImpl();
-        cola.initialize();
+        cola.inicializar();
         Cola cola1 = new ColaImpl();
-        cola.initialize();
+        cola.inicializar();
         Utils.fillQueue(cola, 6);
         Utils.fillQueue(cola1, 8);
         System.out.println("Los valores de una cola son: ");
@@ -23,13 +23,13 @@ public class Ejercicio4D {
 
     private static void compareLastElements(Cola cola, Cola cola1) {
         int queueLastElement = 0, queue1LastElement = 0;
-        while (!cola.isEmpty()){
-            queueLastElement = cola.peek();
-            cola.poll();
+        while (!cola.colaVacia()){
+            queueLastElement = cola.primero();
+            cola.desacolar();
         }
-        while (!cola1.isEmpty()){
-            queue1LastElement = cola1.peek();
-            cola1.poll();
+        while (!cola1.colaVacia()){
+            queue1LastElement = cola1.primero();
+            cola1.desacolar();
         }
         if(queue1LastElement == queueLastElement){
             System.out.println("\n\nLos valores del final de las dos colas coinciden");

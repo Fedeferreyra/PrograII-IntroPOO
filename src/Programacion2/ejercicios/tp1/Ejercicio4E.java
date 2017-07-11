@@ -9,13 +9,13 @@ public class Ejercicio4E {
 
     public static void main(String[] args) {
         Cola cola = new ColaImpl();
-        cola.initialize();
+        cola.inicializar();
         //Utils.fillQueue(cola, 9);
-        cola.add(1);
-        cola.add(2);
-        //cola.add(3);
-        cola.add(2);
-        cola.add(1);
+        cola.acolar(1);
+        cola.acolar(2);
+        //cola.acolar(3);
+        cola.acolar(2);
+        cola.acolar(1);
         System.out.println("Los valores de la cola son:");
         Utils.printStaticQueue(cola);
 
@@ -31,10 +31,10 @@ public class Ejercicio4E {
         }
         for (int i = 0; i <= cola.size()/2; i++) {
             stack.apilar(cola.tope());
-            cola.poll();
+            cola.desacolar();
         }
         if(flag){
-            cola.poll();
+            cola.desacolar();
         }
         boolean isCapicua = true;
         for (int i = 0; i < stack.size(); i++) {

@@ -7,16 +7,16 @@ public class ColaImpl implements Cola {
     int[] elementos;
     int index;
 
-    public void add(int element) {
+    public void acolar(int element) {
         elementos[index] = element;
         index++;
     }
 
-    public void initialize() {
+    public void inicializar() {
         elementos = new int[100];
     }
 
-    public void poll() {
+    public void desacolar() {
         int toReturn = elementos[0];
         for (int i = 1; i < index; i++) {
             elementos[i-1] = elementos[i];
@@ -24,11 +24,11 @@ public class ColaImpl implements Cola {
         index--;
     }
 
-    public boolean isEmpty() {
+    public boolean colaVacia() {
         return index == 0;
     }
 
-    public int peek() {
+    public int primero() {
         return elementos[0];
     }
 

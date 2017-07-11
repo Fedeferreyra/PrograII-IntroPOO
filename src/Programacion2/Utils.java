@@ -17,7 +17,7 @@ public class Utils {
 
     public static void fillQueue(Cola cola, int qty){
         for (int i = 0; i < qty; i++) {
-            cola.add(new Random().nextInt(100));
+            cola.acolar(new Random().nextInt(100));
         }
     }
 
@@ -37,9 +37,9 @@ public class Utils {
 
     public static void printStaticQueue(Cola cola) {
         Cola aux = cola;
-        while (!aux.isEmpty()) {
-            System.out.println(aux.peek());
-            aux.poll();
+        while (!aux.colaVacia()) {
+            System.out.println(aux.primero());
+            aux.desacolar();
         }
     }
 }

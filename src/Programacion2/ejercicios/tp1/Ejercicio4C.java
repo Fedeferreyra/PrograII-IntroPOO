@@ -10,7 +10,7 @@ public class Ejercicio4C {
 
     public static void main(String[] args) {
         Cola cola = new ColaImpl();
-        cola.initialize();
+        cola.inicializar();
         Utils.fillQueue(cola, 5);
         System.out.println("Los valores de la cola al principio del proceso son: ");
         Utils.printStaticQueue(cola);
@@ -22,11 +22,11 @@ public class Ejercicio4C {
     }
 
     private static void invertQueue(Cola cola){
-        int value = cola.peek();
-        cola.poll();
-        if (!cola.isEmpty()){
+        int value = cola.primero();
+        cola.desacolar();
+        if (!cola.colaVacia()){
             invertQueue(cola);
         }
-        cola.add(value);
+        cola.acolar(value);
     }
 }

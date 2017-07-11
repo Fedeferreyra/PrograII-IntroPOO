@@ -14,7 +14,7 @@ public class Ejercicio4B {
         Pila pila = new PilaEstatica();
         pila.inicializar();
         Cola destinyCola = new ColaImpl();
-        destinyCola.initialize();
+        destinyCola.inicializar();
         Utils.fillQueue(sourceCola, 5);
 
         System.out.println("Los valores de la cola al principio del proceso son: ");
@@ -27,12 +27,12 @@ public class Ejercicio4B {
     }
 
     private static void invertQueue(Cola sourceCola, Pila pila, Cola destinyCola){
-        if (!sourceCola.isEmpty()){
-            pila.apilar(sourceCola.peek());
-            sourceCola.poll();
+        if (!sourceCola.colaVacia()){
+            pila.apilar(sourceCola.primero());
+            sourceCola.desacolar();
             invertQueue(sourceCola, pila, destinyCola);
         }else if(!pila.pilaVacia()){
-            destinyCola.add(pila.tope());
+            destinyCola.acolar(pila.tope());
             pila.desapilar();
             invertQueue(sourceCola, pila, destinyCola);
         }
