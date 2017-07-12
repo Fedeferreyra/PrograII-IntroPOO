@@ -40,8 +40,4 @@ public class PilaEstatica implements Pila {
             System.out.print(array[i] + " ");
         }
     }
-
-    public String toString() {
-        return String.valueOf(array[index]);
-    }
 }

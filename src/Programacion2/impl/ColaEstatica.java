@@ -13,7 +13,9 @@ public class ColaEstatica implements Cola {
     }
 
     public void inicializar() {
+
         elementos = new int[100];
+        index = 0;
     }
 
     public void desacolar() {

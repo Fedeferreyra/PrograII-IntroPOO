@@ -11,30 +11,24 @@ public class Ejercicio4B {
 
     public static void main(String[] args) {
         Cola sourceCola = new ColaEstatica();
+        sourceCola.inicializar();
         Pila pila = new PilaEstatica();
         pila.inicializar();
         Cola destinyCola = new ColaEstatica();
         destinyCola.inicializar();
         Utils.fillQueue(sourceCola, 5);
-
-        System.out.println("Los valores de la cola al principio del proceso son: ");
-        Utils.printStaticQueue(sourceCola);
-
         invertQueue(sourceCola, pila, destinyCola);
-
-        System.out.println("\n\nLos valores de la cola al final del proceso son: ");
-        Utils.printStaticQueue(destinyCola);
+        int i = 0;
     }
 
     private static void invertQueue(Cola sourceCola, Pila pila, Cola destinyCola){
-        if (!sourceCola.colaVacia()){
+        while (!sourceCola.colaVacia()) {
             pila.apilar(sourceCola.primero());
             sourceCola.desacolar();
-            invertQueue(sourceCola, pila, destinyCola);
-        }else if(!pila.pilaVacia()){
+        }
+        while(!pila.pilaVacia()) {
             destinyCola.acolar(pila.tope());
             pila.desapilar();
-            invertQueue(sourceCola, pila, destinyCola);
         }
     }
 }
