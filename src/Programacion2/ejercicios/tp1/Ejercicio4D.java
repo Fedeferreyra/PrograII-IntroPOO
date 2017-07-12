@@ -11,13 +11,9 @@ public class Ejercicio4D {
         Cola cola = new ColaEstatica();
         cola.inicializar();
         Cola cola1 = new ColaEstatica();
-        cola.inicializar();
+        cola1.inicializar();
         Utils.fillQueue(cola, 6);
         Utils.fillQueue(cola1, 8);
-        System.out.println("Los valores de una cola son: ");
-        Utils.printStaticQueue(cola);
-        System.out.println("\n\nLos valores de la otra cola son: ");
-        Utils.printStaticQueue(cola);
         compareLastElements(cola, cola1);
     }
 
@@ -33,7 +29,7 @@ public class Ejercicio4D {
         }
         if(queue1LastElement == queueLastElement){
             System.out.println("\n\nLos valores del final de las dos colas coinciden");
-        }else {
+        } else {
             System.out.println("\n\nLos valores del final no coinciden");
         }
     }

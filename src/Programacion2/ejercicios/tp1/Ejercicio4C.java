@@ -12,13 +12,7 @@ public class Ejercicio4C {
         Cola cola = new ColaEstatica();
         cola.inicializar();
         Utils.fillQueue(cola, 5);
-        System.out.println("Los valores de la cola al principio del proceso son: ");
-        Utils.printStaticQueue(cola);
-
         invertQueue(cola);
-
-        System.out.println("\n\nLos valores de la cola al final del proceso son: ");
-        Utils.printStaticQueue(cola);
     }
 
     private static void invertQueue(Cola cola){

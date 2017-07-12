@@ -18,7 +18,6 @@ public class Ejercicio4B {
         destinyCola.inicializar();
         Utils.fillQueue(sourceCola, 5);
         invertQueue(sourceCola, pila, destinyCola);
-        int i = 0;
     }
 
     private static void invertQueue(Cola sourceCola, Pila pila, Cola destinyCola){
