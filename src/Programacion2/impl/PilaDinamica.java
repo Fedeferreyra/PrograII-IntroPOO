@@ -2,7 +2,7 @@ package Programacion2.impl;
 
 import Programacion2.api.Pila;
 
-public class DynamicPila implements Pila {
+public class PilaDinamica implements Pila {
     private Node top;
 
 
