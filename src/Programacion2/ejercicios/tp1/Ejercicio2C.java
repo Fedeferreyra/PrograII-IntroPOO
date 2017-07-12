@@ -22,11 +22,15 @@ public class Ejercicio2C {
     }
 
     private static void invertStack(Pila pila) {
-        int peek = pila.tope();
-        pila.desapilar();
-        if (!pila.pilaVacia()) {
-            invertStack(pila);
+        int[] elementos =  new int[100];
+        int index = 0;
+        while (!pila.pilaVacia()) {
+            elementos[index] = pila.tope();
+            pila.desapilar();
+            index++;
         }
-        pila.apilar(peek);
+        for (int j=0 ; j < index ; j++) {
+            pila.apilar(elementos[j]);
+        }
     }
 }

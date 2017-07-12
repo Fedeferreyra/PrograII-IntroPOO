@@ -24,7 +24,6 @@ public class Ejercicio2B {
     }
 
     private static void copyStack(Pila sourcePila, Pila destinyPila) {
-        // recursividad para llenar la pila en orden sin tener que usar una pila aux.
        if (!sourcePila.pilaVacia()) {
             int pop = sourcePila.tope();
             sourcePila.desapilar();
