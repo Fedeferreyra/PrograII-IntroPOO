@@ -13,21 +13,14 @@ public class Ejercicio4A {
         Cola destinyCola = new ColaEstatica();
         destinyCola.inicializar();
         Utils.fillQueue(sourceCola, 5);
-
-        System.out.println("Los valores de la cola al principio del proceso son: ");
-        Utils.printStaticQueue(destinyCola);
-
         queueToQueue(sourceCola, destinyCola);
-
-        System.out.println("\n\nLos valores de la cola al final del proceso son: ");
-        Utils.printStaticQueue(sourceCola);
+        int i = 0;
     }
 
     private static void queueToQueue(Cola sourceCola, Cola destinyCola) {
-        if (!sourceCola.colaVacia()) {
+        while(!sourceCola.colaVacia()) {
             destinyCola.acolar(sourceCola.primero());
             sourceCola.desacolar();
-            queueToQueue(sourceCola, destinyCola);
         }
     }
 }

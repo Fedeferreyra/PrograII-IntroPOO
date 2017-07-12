@@ -17,7 +17,6 @@ public class ColaEstatica implements Cola {
     }
 
     public void desacolar() {
-        int toReturn = elementos[0];
         for (int i = 1; i < index; i++) {
             elementos[i-1] = elementos[i];
         }

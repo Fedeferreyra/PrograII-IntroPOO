@@ -15,7 +15,7 @@ public class Ejercicio2E {
         System.out.println("Los valores de la pila son:");
         Utils.printStaticStack(pila);
         int suma = sumar(pila, 0);
-        System.out.println("Los valores sumados de la pila son: " + suma);
+        System.out.println("\nLos valores sumados de la pila son: " + suma);
 
     }
 
