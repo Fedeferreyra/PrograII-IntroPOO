@@ -21,20 +21,15 @@ public class Ejercicio6B {
 
     }
 
-    private static String areEquals(ColaPrioridadEstatica prioritizedQueue, ColaPrioridadEstatica prioritizedQueue1) {
-        boolean result = true;
-        if (prioritizedQueue.size() == prioritizedQueue1.size()) {
-            int size = prioritizedQueue.size();
-            for (int i = 0; i < size; i++) {
-                if (prioritizedQueue.prioridad() != prioritizedQueue1.prioridad()
-                        || prioritizedQueue.desacolar() != prioritizedQueue1.desacolar()) {
-                    result = false;
-                    break;
-                }
-            }
-        }else {
-            result = false;
+    private static boolean areEquals(ColaPrioridadEstatica cola1, ColaPrioridadEstatica cola2) {
+        while ((!cola1.colaVacia() && cola2.colaVacia()) &&
+                (cola1.primero() == cola2.primero()) &&
+                (cola1.prioridad() == cola2.prioridad())
+                ) {
+            cola1.desacolar();
+            cola2.desacolar();
         }
-        return result ? "Son identicas" : "No son identicas";
+        return cola2.colaVacia() && cola1.colaVacia();
     }
+
 }

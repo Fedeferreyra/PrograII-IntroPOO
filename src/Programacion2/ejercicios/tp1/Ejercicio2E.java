@@ -13,15 +13,18 @@ public class Ejercicio2E {
         Utils.fillStack(pila, 5);
 
         System.out.println("Los valores de la pila son:");
-        Utils.printStaticStack(pila);
-        int suma = sumar(pila, 0);
+        int suma = sumar(pila);
         System.out.println("\nLos valores sumados de la pila son: " + suma);
 
     }
 
-    public static int sumar(Pila pila, int suma) {
-        suma = suma + pila.tope();
-        pila.desapilar();
-        return pila.pilaVacia() ?  suma : sumar(pila, suma);
+    public static int sumar(Pila pila) {
+        if (!pila.pilaVacia()) {
+            int tope = pila.tope();
+            pila.desapilar();
+            return sumar(pila) + tope;
+        } else {
+            return 0;
+        }
     }
 }

@@ -24,19 +24,17 @@ public class Ejercicio6A {
 
     }
 
-    private static ColaPrioridadEstatica combinarColas(ColaPrioridadEstatica prioritizedQueue1, ColaPrioridadEstatica prioritizedQueue2) {
-        ColaPrioridadEstatica prioritizedQueue = new ColaPrioridadEstatica();
-
-        int qty = prioritizedQueue1.size() + prioritizedQueue2.size();
-        for (int i = 0; i < qty; i++) {
-            if (prioritizedQueue1.size() > 0 ){
-                prioritizedQueue.acolarPrioridad(prioritizedQueue1.primero(),prioritizedQueue1.prioridad());
-                prioritizedQueue1.desacolar();
-            } else if (prioritizedQueue2.size() > 0 ){
-                prioritizedQueue.acolarPrioridad(prioritizedQueue2.primero(), prioritizedQueue2.prioridad());
-                prioritizedQueue2.desacolar();
-            }
+    private static ColaPrioridadEstatica combinarColas(ColaPrioridadEstatica cola1, ColaPrioridadEstatica cola2) {
+        ColaPrioridadEstatica colaCombinada = new ColaPrioridadEstatica();
+        colaCombinada.inicializar();
+        while (!cola1.colaVacia()) {
+            colaCombinada.acolarPrioridad(cola1.primero(), cola1.prioridad());
+            cola1.desacolar();
         }
-        return prioritizedQueue;
+        while(!cola2.colaVacia()){
+            colaCombinada.acolarPrioridad(cola2.primero(), cola2.prioridad());
+            cola2.desacolar();
+        }
+        return colaCombinada;
     }
 }

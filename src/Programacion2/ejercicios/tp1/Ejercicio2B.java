@@ -13,14 +13,7 @@ public class Ejercicio2B {
         sourceStack.inicializar();
         destinyStack.inicializar();
         Utils.fillStack(sourceStack, 5);
-
-        System.out.println("Los valores de la pila al principio del proceso son: ");
-        Utils.printStaticStack(sourceStack);
-
         copyStack(sourceStack, destinyStack);
-
-        System.out.println("\n\nLos valores de la pila al final del proceson son:");
-        Utils.printStaticStack(destinyStack);
     }
 
     private static void copyStack(Pila sourcePila, Pila destinyPila) {

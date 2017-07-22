@@ -11,14 +11,14 @@ public class Ejercicio2D {
         PilaEstatica stack = new PilaEstatica();
         stack.inicializar();
         Utils.fillStack(stack, 5);
-        count(stack, 1);
     }
 
-    private static void count(Pila pila, int counter) {
-        if (!pila.pilaVacia()){
-            System.out.println(counter++);
-            pila.desapilar();
-            count(pila, counter);
+    private static int count(Pila pila) {
+        int count = 0;
+        while (!pila.pilaVacia()){
+             pila.desapilar();
+            count ++;
         }
+        return count;
     }
 }

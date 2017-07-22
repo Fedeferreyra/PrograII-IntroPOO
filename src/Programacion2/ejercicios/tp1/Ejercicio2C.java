@@ -11,15 +11,9 @@ public class Ejercicio2C {
         Pila pila = new PilaEstatica();
         pila.inicializar();
         Utils.fillStack(pila, 5);
-
-        System.out.println("Los valores de la pila al principio del proceso son:");
-        Utils.printStaticStack(pila);
-
-         invertStack(pila);
-
-        System.out.println("\n\nLos valores de la pila al final del proceson son:");
-        Utils.printStaticStack(pila);
+        invertStack(pila);
     }
+
 
     private static void invertStack(Pila pila) {
         int[] elementos =  new int[100];

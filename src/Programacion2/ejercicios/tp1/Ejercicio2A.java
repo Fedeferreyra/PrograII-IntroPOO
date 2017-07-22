@@ -13,14 +13,8 @@ public class Ejercicio2A {
         Pila destinyPila = new PilaEstatica();
         destinyPila.inicializar();
         Utils.fillStack(sourcePila, 5);
-
-        System.out.println("Los valores de la pila al principio del proceso son:");
-        Utils.printStaticStack(sourcePila);
-
         fromStackToStack(sourcePila, destinyPila);
-
-        System.out.println("\n\nLos valores de la pila al final del proceso son:");
-        Utils.printStaticStack(destinyPila);
+        int x = 0;
     }
 
     private static void fromStackToStack(Pila sourcePila, Pila destinyPila) {

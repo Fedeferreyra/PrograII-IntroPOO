@@ -14,17 +14,18 @@ public class Ejercicio2F {
 
         System.out.println("Los valores de la pila son: ");
         Utils.printStaticStack(pila);
-        float avg = avg(pila, 0, 0);
+        float avg = avg(pila);
         System.out.println("Los valores de la pila son: " + avg);
     }
 
-    private static float avg(Pila pila, float suma, float counter) {
-        if (!pila.pilaVacia()) {
+    private static float avg(Pila pila) {
+        int count = 0;
+        int suma = 0;
+        while (!pila.pilaVacia()) {
             suma += pila.tope();
+            count++;
             pila.desapilar();
-            return avg(pila, suma, ++counter);
-        } else {
-            return counter > 0 ? suma/counter : 0;
         }
+        return suma/count;
     }
 }

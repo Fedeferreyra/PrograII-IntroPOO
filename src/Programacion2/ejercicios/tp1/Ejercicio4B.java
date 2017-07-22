@@ -30,4 +30,8 @@ public class Ejercicio4B {
             pila.desapilar();
         }
     }
-}
+
+    private static void inverQueue2(Cola sourceCola) {
+
+    }
+ }

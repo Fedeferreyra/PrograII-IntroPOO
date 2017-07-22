@@ -28,12 +28,8 @@ public class ColaPrioridadEstatica implements ColaPrioridad {
     }
 
     @Override
-    public int desacolar() {
-        if (index >= 0) {
-            return elements[index--];
-        } else {
-            return -1;
-        }
+    public void desacolar() {
+        index--;
     }
 
     @Override

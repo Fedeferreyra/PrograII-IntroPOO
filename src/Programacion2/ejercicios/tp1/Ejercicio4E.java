@@ -2,7 +2,10 @@ package Programacion2.ejercicios.tp1;
 
 import Programacion2.Utils;
 import Programacion2.api.Cola;
+import Programacion2.api.Pila;
+import Programacion2.impl.ColaDinamica;
 import Programacion2.impl.ColaEstatica;
+import Programacion2.impl.PilaDinamica;
 
 //Determinar si una Cola es capicúa o no.
 public class Ejercicio4E {
@@ -22,30 +25,19 @@ public class Ejercicio4E {
         isCapicua(cola);
     }
 
-    private static void isCapicua(Cola cola) {
-        /*Pila stack = new PilaEstatica();
-        stack.inicializar();
-        boolean flag = false;
-        if(cola.size() % 2 != 0){
-            flag = true;
+    private static boolean isCapicua(Cola origen) {
+        Cola colaAux = new ColaDinamica();
+        Pila pilaAux = new PilaDinamica();
+        while (!origen.colaVacia()){
+            colaAux.acolar(origen.primero());
+            pilaAux.apilar(origen.primero());
+            origen.desacolar();
         }
-        for (int i = 0; i <= cola.size()/2; i++) {
-            stack.apilar(cola.tope());
-            cola.desacolar();
+        while (!pilaAux.pilaVacia()
+                && (pilaAux.tope() == colaAux.primero())){
+            colaAux.desacolar();
+            pilaAux.desapilar();
         }
-        if(flag){
-            cola.desacolar();
-        }
-        boolean isCapicua = true;
-        for (int i = 0; i < stack.size(); i++) {
-            if(stack.tope() != cola.tope()){
-                isCapicua = false;
-                System.out.println("\n\nNo es capicua");
-                break;
-            }
-        }
-        if (isCapicua){
-            System.out.println("\n\nLa cola es capicua");
-        }*/
+        return pilaAux.pilaVacia();
     }
 }
