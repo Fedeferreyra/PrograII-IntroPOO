@@ -1,6 +1,6 @@
 package Programacion2.impl;
 
-class NodoConjunto {
-    int info;
-    NodoConjunto sig;
+public class NodoConjunto {
+    public int info;
+    public NodoConjunto sig;
 }
