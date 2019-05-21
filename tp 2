@@ -1,0 +1,427 @@
+TP2: 
+//1)Implementar los TDA Pila, TDA Cola y TDA Cola con Prioridades definidos en los ejercicios número 1), 3) y 5) del TP1 (respectivamente) con listas dinámicas.
+class Nodo {
+	int info ;
+	Nodo sig ;
+}
+
+public class PilaDin implements PilaTDA(){
+	
+	Nodo primero;
+	
+	public void InicializarPila(){
+		primero = null;
+	}
+	
+	public void Apilar(int x){
+		Nodo aux = new Nodo();
+		aux.info = x;
+		aux.sig = primero;
+		primero = null;
+	}
+	
+	public void Desapilar(){
+		primero = primero.sig;
+	}
+	
+	public boolean PilaVacia(){
+		return (primero.sig == null);
+	}
+	
+	public int Tope(){
+		return primero.info;
+	}
+}
+
+public class ColaDin implements ColaTDA(){
+	
+	Nodo primero;
+	Nodo ultimo;
+	
+	public void InicializarCola(){
+		primero = null;	
+		ultimo = null;
+	}
+	
+	public void Acolar(int x){
+		Nodo aux = new Nodo();
+		aux.info = x;
+		aux.sig = null;
+	
+		if(ultimo != null){
+			ultimo.sig = aux;
+			ultimo = aux;
+		}
+		
+		if(primero == null){
+			primero == ultimo;
+		}
+	}
+	
+	public void Desacolar(){
+		primero = primero.sig;
+		
+		if(primero == null){
+			ultimo = null;
+		}
+	}
+	
+	public boolean ColaVacia(){
+		return (ultimo == null)
+	}
+	
+	public int Primero(){
+		return primero.info;
+	}
+}
+
+//implemenacion con estructuras dinamicas
+
+class NodoPrioridad{
+	int info ;
+	int prioridad;
+	NodoPrioridad sig;
+}
+
+public class ColaPrioridadDin implements ColaPrioridadTDS(){
+	
+	NodoPrioridad mayorPrioridad;
+	
+	public void InicializarCola(){
+		mayorPrioridad = null;
+	}
+	
+	public void AcolarPrioridad(int x, int prioridad){
+		
+		Nodo nuevo = new NodoPrioridad();
+		nuevo.info = x;
+		nuevo.prioridad = prioridad;
+		
+		if(mayorPrioridad==null || nuevo.prioridad > mayorPrioridad.prioridad){
+			nuevo.sig = mayorPrioridad;
+			mayorPrioridad = nuevo;			
+		}
+		else{
+			NodoPrioridad aux = mayorPrioridad;
+			
+			while(aux.sig != null && aux.sig.prioridad >= prioridad){
+				aux = aux.sig;
+			}
+			nuevo.sig = aux.sig ;
+			aux.sig = nuevo;
+		}
+	}
+	
+	public void DesacolarPrioridad(){
+		mayorPrioridad = mayorPrioridad.sig;
+	}
+
+	public int Primero(){
+		return mayorPrioridad.info;
+	}
+	
+	public boolean ColaVacia(){
+		return (mayorPrioridad == null);
+	}
+	
+	public int Prioridad(){
+		return mayorPrioridad.prioridad;
+	}
+}
+
+//3) Definir el TDA Conjunto, listando las operaciones asociadas.
+
+public interface ConjuntoTDA {
+	void InicializarConjunto();
+	boolean ConjuntoVacio();
+	void Agregar(int x);
+	int Elegir();
+	void Sacar(int x);
+	boolean Pertenece(int x);
+}
+
+//4) Implementar el TDA Conjunto con las siguientes restricciones
+	//a) Tamaño máximo acotado
+	//b) Tamaño máximo no acotado
+	//c) Universo acotado. Considerar por ejemplo el Universo de los números enteros entre 0 y N.
+	//En todos los casos, dar al menos dos implementaciones utilizando arreglos y con listas dinámicas.
+
+public class ConjuntoA implements ConjuntoTDA(){
+	
+	int [] a;
+	int indice;
+	
+	public void InicializarConjunto(){
+		a = new int[100];
+		indice = 0;
+	}
+	
+	public boolean ConjuntoVacio(){
+		return (indice == 0);
+	}
+	
+	public void Agregar(int x){
+		if(!this.Pertence(x)){
+			a[indice]=x;
+			indice++;
+		}
+	}
+	
+	public int Elegir(){
+		return a[indice-1];
+	}
+	
+	public void Sacar(int x){
+		int i = 0;
+		
+		while(i<indice && a[i]!=x){
+			i++; 
+		}
+		
+		if(i<indice){
+			a[i] = a[indice -1];
+			cant--;
+		}
+	}
+	
+	public boolean Pertenece(int x){
+		while(i<indice && a[i]!=x){
+			i++; 
+		}
+		
+		return (i<indice);
+	}
+}
+
+public class ConjuntoD implements ConjuntoTDA(){
+	
+	class NodoConjunto(){
+		int info;
+		NodoConjunto sig;
+	}
+	
+	NodoConjunto primero;
+	
+	public void InicializarConjunto(){
+		primero = null;
+	}
+	
+	public boolean ConjuntoVacio(){
+		return (primero.sig == null);
+	}
+	
+	public void Agregar(int x){
+		if(!this.Pertenece = x){
+			Nodo aux = new NodoConjunto();
+			aux.info = x.info;
+			aux.sig = primero;
+			primero = aux;
+		}
+	}
+	
+	public int Elegir(){
+		return primero.info;
+	}
+	
+	public void Sacar(int x){
+		if (primero!= null ){
+			if (primero.info == x) {
+				primero = primero.sig ;
+			} 
+			else {
+				Nodo aux = primero;
+				
+				while (aux.sig!=null && aux.sig.info!=x){
+					aux = aux.sig;
+				}
+				if (aux.sig != null ){
+					aux.sig = aux.sig.sig;
+				}
+			}
+		}
+	}
+	
+	public boolean Pertenece(int x){
+		Nodo aux = primero;
+		
+		while (aux.sig!=null && aux.info!=x){
+			aux = aux.sig;
+		}
+		
+		return (aux.sig != null );
+	}
+}
+
+//6) Escribir los métodos externos al TDA que implementan las operaciones intersección, unión y diferencia.
+
+public void Interseccion(ConjuntoTDA C1, ConjuntoTDA C2, ConjuntoTDA ConjuntoInterseccion){
+	int elemento;
+	
+	while(!C1.ConjuntoVacio()){
+		elemento == (C1.Elegir)
+		if(C2.Pertenece(elemento){
+			ConjuntoInterseccion.Agregar(elemento);
+		}
+		C1.Sacar(elemento);
+	}
+}
+
+public void Union(ConjuntoTDA C1, ConjuntoTDA C2, ConjuntoTDA ConjuntoUnion){
+	int elemento;
+	
+	while(!C1.ConjuntoVacio()){
+		elemento == (C1.Elegir)
+		ConjuntoUnion.Agregar(elemento);
+		C1.Sacar(elemento);
+	}
+	
+	while(!C2.ConjuntoVacio(){
+		elemento == (C2.Elegir);
+		if(!ConjuntoUnion.Pertenece(elemento)){
+			ConjuntoUnion.Agregar(elemento);
+			C2.Sacar(elemento);
+		}
+	}
+}
+
+public void Diferencia(ConjuntoTDA C1, ConjuntoTDA C2, ConjuntoTDA ConjuntoDiferencia){
+	int elemento;
+	
+	while(!C1.ConjuntoVacio()){
+		elemento == (C1.Elegir)
+		if(!C2.Pertenece(elemento){
+			ConjuntoDiferencia.Agregar(elemento);
+		}
+		C1.Sacar(elemento);
+	}
+}
+
+//7) Definir el TDA Diccionario, listando las operaciones asociadas. Considerar los dos casos vistos en clase: a) cada clave está asociada a un único valor, y b) cada clave está asociada a un conjunto de valores.
+
+public interface DicSimpleTDA(){
+	void InicializarDiccionario();
+	void Agregar(int valor, int clave);
+	void Eliminar(int clave);
+	int Recuperar(int clave);
+	ConjuntoTDA Claves();
+}
+
+public interface DicMultipleTDA(){
+	void InicializarDiccionario();
+	void Agregar(int valor, int clave);
+	void Eliminar(int clave);
+	void EliminarValor(int clave, int x);
+	ConjuntoTDA Recuperar(int clave);
+	ConjuntoTDA Claves();
+}
+
+//8) Implementar el TDA Diccionario, considerando las dos alternativas del ejercicio anterior
+//a) cada clave está asociada a un único valor
+	//Con arreglos
+	
+public class DiccionarioSimpleR implements DicSimpleTDA(){
+	
+	class Elemento{
+		int clave;
+		int valor;
+	}
+	
+	Elemento[] elemento;
+	int indice;
+	
+	public void InicializarDiccionario(){
+		elemento = new Elemento[100];
+		indice = 0;
+	}
+	
+	private int GetIndice(int clave){
+		int i = indice-1;
+		while(i>=indice && elemento[i].clave!=clave){
+			i--;
+		}
+		return i;
+	}
+	
+	public void Agregar(int valor, int clave){
+		int pos = GetIndice(int clave);
+		if(pos == -1){
+			pos = indice;
+			elemento[pos] = new Elemento;
+			elemento[pos].clave = clave;
+			indice++;
+		}
+		elemento[pos].valor = valor;
+	}
+	
+	public void Eliminar(int clave){
+		int pos = GetIndice(int clave);
+		if(pos != -1){
+			emlemento[pos] = elemento[pos-1];
+			indice--;
+		}
+	}
+	
+	public int Recuperar(int clave){
+		int pos = GetIndice(int clave);
+		return elemento[pos].valor;
+	}
+	
+	public ConjuntoTDA claves(){
+		ConjuntoTDA conjuntoClaves = new ConjuntoR;
+		conjuntoClaves.Inicializar();
+		
+		for(int i = 0; i < indice; i++){
+			conjuntoClaves.Agregar(elemento[i].clave);
+		}
+		
+		return conjuntoClaves;
+	}
+}
+	
+	//Con listas dinamicas
+	
+public class DiccionarioSimpleD implements DicSimpleTDA(){
+	
+	class NodoElemento{
+		int clave;
+		int valor;
+		NodoElemento sig;
+	}
+	
+	NodoElemento primero;
+	
+	public void InicializarDiccionario(){
+		primero = null;
+	}
+	
+	private int GetIndice(int clave){
+		int i = 0;
+	}
+	
+	public void Agregar(int valor, int clave){
+		
+	}
+	
+	public void Eliminar(int clave){
+		pos = GetIndice(int clave);
+		
+	}
+	
+	public int Recuperar(int clave){
+	
+	}
+	
+	public ConjuntoTDA claves(){
+		ConjuntoTDA conjuntoClaves = new ConjuntoD;
+		conjuntoClaves.Inicializar();
+		
+		while(primero.sig != null){
+			conjuntoClaves.Agregar(primero.clave);
+			
+		}
+		
+		return conjuntoClaves
+	}
+}
+//b) cada clave está asociada a un conjunto de valores.
+
